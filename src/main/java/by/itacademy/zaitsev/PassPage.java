@@ -8,6 +8,9 @@ public class PassPage {
     public static String buttonAuthorization = "//*[@id=\"db\"]/div[1]/div[1]/div/header/div/div[3]/div[3]/ul/li[2]/a";
     public static String textAuthorization = "//*[@id=\"auth-popup\"]/div/div/div[1]/div";
     public static String loginFormMail = "//*[@id=\"form-auth\"]/fieldset/div[1]/label/div[2]/input";
+    public static String loginFormPassword = "//*[@id=\"form-auth\"]/fieldset/div[2]/div[1]/div/label/div[2]/input";
+    public static String enterButtonLoginForm = "//*[@id=\"form-auth\"]/fieldset/div[3]/input";
+    public static String userIsNotFound = "//*[@id=\"auth-popup\"]/div/div/div[2]/div[2]/div";
     public PassPage(WebDriver driver) {this.driver = driver;}
     public void clickButtonAuthorization() {
         driver.findElement(By.xpath(buttonAuthorization)).click();
@@ -18,4 +21,13 @@ public class PassPage {
     public void sendKeysLoginFormMail(String newEmail) {
         driver.findElement(By.xpath(loginFormMail)).sendKeys("az.pomocnik@gmail.com");
     }
+    public void sendKeysLoginFormPassword(String newPassword) {
+        driver.findElement(By.xpath(loginFormPassword)).sendKeys("ArtemZaitse");
+    }
+    public void clickEnterButton() { driver.findElement(By.xpath(enterButtonLoginForm)).click();
+    }
+    public String userIsNotFound() {
+        return driver.findElement(By.xpath(userIsNotFound)).getText();
+    }
+
 };

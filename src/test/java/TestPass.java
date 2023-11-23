@@ -16,9 +16,9 @@ public class TestPass {
 
         pass.clickButtonAuthorization();
 
-        WebElement textAuthorizationWebElement = driver.findElement(By.xpath(PassPage.textAuthorization));
-        String actualTextAuthorizationWebElement = textAuthorizationWebElement.getText();
-        Assertions.assertEquals("Авторизация", actualTextAuthorizationWebElement);
+        /*WebElement textAuthorizationWebElement = driver.findElement(By.xpath(PassPage.textAuthorization));
+        String actualTextAuthorizationWebElement = textAuthorizationWebElement.getText();*/
+        Assertions.assertEquals("Авторизация", pass.textAuthorization());
 
         Thread.sleep(3000);
         driver.quit();
@@ -29,13 +29,17 @@ public class TestPass {
         driver.manage().window().maximize();
         driver.get("https://pass.rw.by/ru/");
         PassPage pass = new PassPage(driver);
+        Thread.sleep(3000);
 
         pass.clickButtonAuthorization();
 
-        WebElement textAuthorizationWebElement = driver.findElement(By.xpath(PassPage.textAuthorization));
-        String actualTextAuthorizationWebElement = textAuthorizationWebElement.getText();
-        Assertions.assertEquals("Авторизация", actualTextAuthorizationWebElement);
+        Assertions.assertEquals("Авторизация", pass.textAuthorization());
 
         pass.sendKeysLoginFormMail("az.pomocnik@gmail.com");
+        pass.sendKeysLoginFormPassword("ArtemZaitsev");
+        pass.clickEnterButton();
+        Assertions.assertEquals("Пользователь не найден", pass.userIsNotFound());
+        Thread.sleep(3000);
+        driver.quit();
     }
 }
