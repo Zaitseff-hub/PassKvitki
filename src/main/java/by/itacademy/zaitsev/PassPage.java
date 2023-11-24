@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class PassPage {
-    static WebDriver driver;
+    private WebDriver driver;
     public static String buttonAuthorization = "//*[@id=\"db\"]/div[1]/div[1]/div/header/div/div[3]/div[3]/ul/li[2]/a";
     public static String textAuthorization = "//*[@id=\"auth-popup\"]/div/div/div[1]/div";
     public static String loginFormMail = "//*[@id=\"form-auth\"]/fieldset/div[1]/label/div[2]/input";
@@ -19,15 +19,11 @@ public class PassPage {
         return driver.findElement(By.xpath(textAuthorization)).getText();
     }
     public void sendKeysLoginFormMail(String newEmail) {
-        driver.findElement(By.xpath(loginFormMail)).sendKeys("az.pomocnik@gmail.com");
-    }
+        driver.findElement(By.xpath(loginFormMail)).sendKeys("az.pomocnik@gmail.com");}
     public void sendKeysLoginFormPassword(String newPassword) {
-        driver.findElement(By.xpath(loginFormPassword)).sendKeys("ArtemZaitse");
-    }
-    public void clickEnterButton() { driver.findElement(By.xpath(enterButtonLoginForm)).click();
-    }
+        driver.findElement(By.xpath(loginFormPassword)).sendKeys("ArtemZaitse");}
+    public void clickEnterButton() { driver.findElement(By.xpath(enterButtonLoginForm)).click();}
     public String userIsNotFound() {
-        return driver.findElement(By.xpath(userIsNotFound)).getText();
-    }
+        return driver.findElement(By.xpath(userIsNotFound)).getText();}
 
 };

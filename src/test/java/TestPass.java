@@ -13,11 +13,7 @@ public class TestPass {
         driver.manage().window().maximize();
         driver.get("https://pass.rw.by/ru/");
         PassPage pass = new PassPage(driver);
-
         pass.clickButtonAuthorization();
-
-        /*WebElement textAuthorizationWebElement = driver.findElement(By.xpath(PassPage.textAuthorization));
-        String actualTextAuthorizationWebElement = textAuthorizationWebElement.getText();*/
         Assertions.assertEquals("Авторизация", pass.textAuthorization());
 
         Thread.sleep(3000);
