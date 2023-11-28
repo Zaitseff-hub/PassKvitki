@@ -5,8 +5,8 @@ import org.openqa.selenium.WebDriver;
 
 public class PassPage {
     private WebDriver driver;
-    public static String buttonAuthorization = "//*[@id=\"db\"]/div[1]/div[1]/div/header/div/div[3]/div[3]/ul/li[2]/a";
-    public static String textAuthorization = "//*[@id=\"auth-popup\"]/div/div/div[1]/div";
+    public static String buttonAuthorization = "//span[text()='Личный кабинет']";
+    public static String textAuthorization = "//*[contains(text(),'Авторизация')]";
     public static String loginFormMail = "//*[@id=\"form-auth\"]/fieldset/div[1]/label/div[2]/input";
     public static String loginFormPassword = "//*[@id=\"form-auth\"]/fieldset/div[2]/div[1]/div/label/div[2]/input";
     public static String enterButtonLoginForm = "//*[@id=\"form-auth\"]/fieldset/div[3]/input";
@@ -21,7 +21,7 @@ public class PassPage {
     public void sendKeysLoginFormMail(String newEmail) {
         driver.findElement(By.xpath(loginFormMail)).sendKeys("az.pomocnik@gmail.com");}
     public void sendKeysLoginFormPassword(String newPassword) {
-        driver.findElement(By.xpath(loginFormPassword)).sendKeys("ArtemZaitse");}
+        driver.findElement(By.xpath(loginFormPassword)).sendKeys("ArtemZaitsev");}
     public void clickEnterButton() { driver.findElement(By.xpath(enterButtonLoginForm)).click();}
     public String userIsNotFound() {
         return driver.findElement(By.xpath(userIsNotFound)).getText();}
